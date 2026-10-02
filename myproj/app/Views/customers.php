@@ -9,14 +9,14 @@
 <h1>Customer Accounts</h1>
 
 <p>
-    <a href="<?= base_url('home') ?>">Home</a> |
-    <a href="<?= base_url('about') ?>">About</a> |
-    <a href="<?= base_url('customers') ?>">Customers</a> |
-    <a href="<?= base_url('users') ?>">Users</a>
+    <a href="<?= base_url('/') ?>">Home</a> |
+    <a href="<?= base_url('/about') ?>">About</a> |
+    <a href="<?= base_url('/customers') ?>">Customers</a> |
+    <a href="<?= base_url('/users') ?>">Users</a>
 </p>
 
 <p>
-    <a href="<?= base_url('customers/new') ?>">Add New Customer</a>
+    <a href="<?= base_url('/customers/new') ?>">Add New Customer</a>
 </p>
 
 <table border="1" cellpadding="10">
@@ -36,7 +36,7 @@
         <td><?= esc($customer['phone']) ?></td>
 
         <td>
-            <a href="<?= base_url('customers/edit/' . $customer['id']) ?>">
+            <a href="<?= base_url('/customers/edit/' . $customer['id']) ?>">
                 Edit
             </a>
         </td>
