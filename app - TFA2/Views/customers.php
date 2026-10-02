@@ -6,7 +6,7 @@
 
 <body>
 
-    <h1>TEST</h1>
+    <h1>Customer Accounts</h1>
 
     <a href="/">Home</a> |
     <a href="/about">About</a> |
