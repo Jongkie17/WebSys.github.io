@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TEST TFA3</title>
+    <title>Customer Accounts</title>
 </head>
 
 <body>
 
-    <h1>Customer Accounts</h1>
+    <h1>TEST</h1>
 
     <a href="/">Home</a> |
     <a href="/about">About</a> |
