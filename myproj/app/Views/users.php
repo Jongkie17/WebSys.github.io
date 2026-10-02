@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User Account</title>
+    <title>User Accounts</title>
 </head>
 
 <body>
 
-<h1>User Account</h1>
+<h1>User Accounts</h1>
 
 <a href="<?= base_url('users/new') ?>">
     Add New User
