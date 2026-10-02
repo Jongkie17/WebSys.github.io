@@ -13,7 +13,6 @@ class Customers extends BaseController
         $this->customerModel = new CustomerModel();
     }
 
-    
     public function index()
     {
         $data = [
@@ -23,19 +22,16 @@ class Customers extends BaseController
         return view('customers', $data);
     }
 
-    
     public function new()
     {
         return view('customer_form');
     }
 
-    
     public function create()
     {
         $rules = [
             'full_name' => 'required',
-            'email' => 'required|valid_email',
-            'phone' => 'permit_empty'
+            'email' => 'required|valid_email'
         ];
 
         if (!$this->validate($rules)) {
@@ -54,7 +50,6 @@ class Customers extends BaseController
         return redirect()->to('/customers');
     }
 
-    
     public function edit($id)
     {
         $customer = $this->customerModel->find($id);
@@ -68,13 +63,11 @@ class Customers extends BaseController
         ]);
     }
 
-    
     public function update($id)
     {
         $rules = [
             'full_name' => 'required',
-            'email' => 'required|valid_email',
-            'phone' => 'permit_empty'
+            'email' => 'required|valid_email'
         ];
 
         if (!$this->validate($rules)) {
