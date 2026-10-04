@@ -8,7 +8,7 @@
 
     <h1>About</h1>
 
-    <p>This is a simple Point-of-Sale system made using CodeIgniter 4.</p>
+    <p>This is a simple Point-of-Sale system</p>
 
     <a href="/">Home</a> |
     <a href="/about">About</a> |
