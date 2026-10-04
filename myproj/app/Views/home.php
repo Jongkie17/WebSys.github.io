@@ -6,7 +6,7 @@
 
 <body>
 
-    <h1>POS System</h1>
+    <h1>Point-of-Sale System</h1>
 
     <p>Welcome to my Point-of-Sale (POS) system.</p>
 
