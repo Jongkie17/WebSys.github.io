@@ -72,7 +72,7 @@
         <?php else: ?>
 
             <img
-                src="<?= base_url('images/placeholder.png') ?>"
+                src="<?= base_url('images/placeholder.jpg') ?>"
                 width="100"
                 height="100"
             >
