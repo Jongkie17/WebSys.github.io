@@ -8,7 +8,7 @@
 
     <h1>POS System</h1>
 
-    <p>Welcome to my Point-of-Sale system.</p>
+    <p>Welcome to my Point-of-Sale (POS) system.</p>
 
     <a href="/">Home</a> |
     <a href="/about">About</a> |
