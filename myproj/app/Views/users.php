@@ -6,7 +6,7 @@
 
 <body>
 
-<h1>User Accounts</h1>
+<h1>User's Accounts</h1>
 
 <a href="<?= base_url('users/new') ?>">
     Add New User
