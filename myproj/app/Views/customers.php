@@ -8,19 +8,23 @@
 
 <h1>Customer Accounts</h1>
 
+<?php if (session()->get('isLoggedIn')): ?>
+
+    <p>
+        Logged in as:
+        <?= esc(session()->get('full_name')) ?>
+    </p>
+
+<?php endif; ?>
+
 <p>
     <a href="<?= base_url('/') ?>">Home</a> |
     <a href="<?= base_url('/tasks') ?>">Tasks</a> |
     <a href="<?= base_url('/profile') ?>">Profile</a> |
     <a href="<?= base_url('/about') ?>">About</a> |
     <a href="<?= base_url('/customers') ?>">Customers</a> |
-    <a href="<?= base_url('/users') ?>">Users</a>
-</p>
-
-<p>
-    <a href="<?= base_url('/customers/new') ?>">
-        Add New Customer
-    </a>
+    <a href="<?= base_url('/users') ?>">Users</a> |
+    <a href="<?= base_url('/logout') ?>">Logout</a>
 </p>
 
 <table border="1" cellpadding="10">
@@ -49,6 +53,12 @@
     <?php endforeach; ?>
 
 </table>
+
+<p>
+    <a href="<?= base_url('/customers/new') ?>">
+        Add New Customer
+    </a>
+</p>
 
 </body>
 </html>
