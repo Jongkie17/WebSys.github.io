@@ -10,17 +10,16 @@
 
 <p>
     <a href="<?= base_url('/') ?>">Home</a> |
-    <a href="<?= base_url('/tasks') ?>">Task List</a> |
+    <a href="<?= base_url('/tasks') ?>">Tasks</a> |
     <a href="<?= base_url('/profile') ?>">Profile</a> |
-    <a href="<?= base_url('/about') ?>">About</a> |
-    <a href="<?= base_url('/customers') ?>">Customers</a> |
-    <a href="<?= base_url('/users') ?>">Users</a> |
-    <a href="<?= base_url('/logout') ?>">Logout</a>
+    <a href="<?= base_url('/about') ?>">About</a>
 </p>
 
 <h2>Today's Tasks</h2>
 
-<p>Date: <?= esc($today) ?></p>
+<p>
+    Date: <?= esc($today) ?>
+</p>
 
 <table border="1" cellpadding="10">
 

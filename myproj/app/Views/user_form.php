@@ -15,15 +15,12 @@
 <?php if (session()->getFlashdata('errors')): ?>
 
     <?php foreach (session()->getFlashdata('errors') as $error): ?>
-
         <p style="color:red;">
             <?= esc($error) ?>
         </p>
-
     <?php endforeach; ?>
 
 <?php endif; ?>
-
 
 <form
     method="post"
@@ -36,7 +33,6 @@
     <?= csrf_field() ?>
 
     <label>Username:</label><br>
-
     <input
         type="text"
         name="username"
@@ -45,9 +41,7 @@
 
     <br><br>
 
-
     <label>Full Name:</label><br>
-
     <input
         type="text"
         name="full_name"
@@ -55,7 +49,6 @@
     >
 
     <br><br>
-
 
     <?php if (isset($user)): ?>
 
@@ -65,48 +58,42 @@
 
             <img
                 src="<?= base_url('uploads/avatars/' . $user['avatar']) ?>"
-                width="100"
-                height="100"
+                width="150"
+                height="150"
             >
 
         <?php else: ?>
 
             <img
                 src="<?= base_url('images/placeholder.jpg') ?>"
-                width="100"
-                height="100"
+                width="150"
+                height="150"
             >
 
         <?php endif; ?>
 
         <br><br>
 
+        <label>Profile Picture:</label><br>
+
+        <input
+            type="file"
+            name="avatar"
+            accept=".jpg,.jpeg,.png"
+        >
+
+        <br>
+
+        <small>
+            JPG or PNG only. Maximum size: 2MB.
+        </small>
+
+        <br><br>
+
     <?php endif; ?>
 
-
-    <label>Profile Picture:</label><br>
-
-    <input
-        type="file"
-        name="avatar"
-        accept=".jpg,.jpeg,.png"
-    >
-
-    <br>
-
-    <small>
-        JPG or PNG only. Maximum size: 2MB.
-    </small>
-
-    <br><br>
-
-
     <button type="submit">
-
-        <?= isset($user)
-            ? 'Update User'
-            : 'Add User' ?>
-
+        <?= isset($user) ? 'Update User' : 'Add User' ?>
     </button>
 
 </form>

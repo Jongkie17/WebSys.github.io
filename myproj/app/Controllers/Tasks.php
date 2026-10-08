@@ -14,10 +14,8 @@ class Tasks extends BaseController
             ->orderBy('task_date', 'ASC')
             ->findAll();
 
-        $data = [
+        return view('tasks', [
             'tasks' => $tasks
-        ];
-
-        return view('tasks', $data);
+        ]);
     }
 }

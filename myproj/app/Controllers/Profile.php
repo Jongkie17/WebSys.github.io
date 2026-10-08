@@ -12,10 +12,8 @@ class Profile extends BaseController
 
         $user = $userModel->first();
 
-        $data = [
+        return view('profile', [
             'user' => $user
-        ];
-
-        return view('profile', $data);
+        ]);
     }
 }

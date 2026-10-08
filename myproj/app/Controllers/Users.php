@@ -13,7 +13,6 @@ class Users extends BaseController
         $this->userModel = new UserModel();
     }
 
-    
     public function index()
     {
         $data = [
@@ -23,13 +22,11 @@ class Users extends BaseController
         return view('users', $data);
     }
 
-    
     public function new()
     {
         return view('user_form');
     }
 
-    
     public function create()
     {
         $rules = [
@@ -53,7 +50,6 @@ class Users extends BaseController
         return redirect()->to('/users');
     }
 
-    
     public function edit($id)
     {
         $user = $this->userModel->find($id);
@@ -67,7 +63,6 @@ class Users extends BaseController
         ]);
     }
 
-    
     public function update($id)
     {
         $user = $this->userModel->find($id);
@@ -92,29 +87,49 @@ class Users extends BaseController
             'full_name' => $this->request->getPost('full_name')
         ];
 
-        
         $avatar = $this->request->getFile('avatar');
 
         if ($avatar && $avatar->isValid() && !$avatar->hasMoved()) {
 
-            $rules = [
+            $uploadRules = [
                 'avatar' => [
                     'label' => 'Avatar',
-                    'rules' => 'uploaded[avatar]|is_image[avatar]|mime_in[avatar,image/jpg,image/jpeg,image/png]|max_size[avatar,2048]'
+                    'rules' => 'is_image[avatar]|mime_in[avatar,image/jpg,image/jpeg,image/png]|max_size[avatar,2048]'
                 ]
             ];
 
-            if (!$this->validate($rules)) {
+            if (!$this->validate($uploadRules)) {
                 return redirect()->back()
                     ->withInput()
                     ->with('errors', $this->validator->getErrors());
             }
 
+            $uploadPath = ROOTPATH . 'public/uploads/avatars';
+
+            if (!is_dir($uploadPath)) {
+                mkdir($uploadPath, 0777, true);
+            }
+
             $newName = $avatar->getRandomName();
 
-            $avatar->move(ROOTPATH . 'public/uploads/avatars', $newName);
+            $avatar->move($uploadPath, $newName);
 
-            $data['avatar'] = $newName;
+            // Create a display-ready thumbnail
+            $thumbnailName = 'thumb_' . $newName;
+            $thumbnailPath = $uploadPath . '/' . $thumbnailName;
+
+            $image = service('image');
+
+            $image->withFile($uploadPath . '/' . $newName)
+                ->fit(150, 150)
+                ->save($thumbnailPath);
+
+            // Remove the original after creating the thumbnail
+            if (file_exists($uploadPath . '/' . $newName)) {
+                unlink($uploadPath . '/' . $newName);
+            }
+
+            $data['avatar'] = $thumbnailName;
         }
 
         $this->userModel->update($id, $data);

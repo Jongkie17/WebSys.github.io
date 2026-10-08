@@ -14,14 +14,11 @@ class Home extends BaseController
 
         $tasks = $taskModel
             ->where('task_date', $today)
-            ->orderBy('task_date', 'ASC')
             ->findAll();
 
-        $data = [
+        return view('home', [
             'tasks' => $tasks,
             'today' => $today
-        ];
-
-        return view('home', $data);
+        ]);
     }
 }

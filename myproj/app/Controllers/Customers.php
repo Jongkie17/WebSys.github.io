@@ -31,7 +31,8 @@ class Customers extends BaseController
     {
         $rules = [
             'full_name' => 'required',
-            'email' => 'required|valid_email'
+            'email' => 'required|valid_email',
+            'phone' => 'permit_empty'
         ];
 
         if (!$this->validate($rules)) {
@@ -67,7 +68,8 @@ class Customers extends BaseController
     {
         $rules = [
             'full_name' => 'required',
-            'email' => 'required|valid_email'
+            'email' => 'required|valid_email',
+            'phone' => 'permit_empty'
         ];
 
         if (!$this->validate($rules)) {
