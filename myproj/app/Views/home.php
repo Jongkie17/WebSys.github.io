@@ -12,7 +12,9 @@
     <a href="<?= base_url('/') ?>">Home</a> |
     <a href="<?= base_url('/tasks') ?>">Tasks</a> |
     <a href="<?= base_url('/profile') ?>">Profile</a> |
-    <a href="<?= base_url('/about') ?>">About</a>
+    <a href="<?= base_url('/about') ?>">About</a> |
+    <a href="<?= base_url('/customers') ?>">Customers</a> |
+    <a href="<?= base_url('/users') ?>">Users</a>
 </p>
 
 <h2>Today's Tasks</h2>
