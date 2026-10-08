@@ -8,6 +8,9 @@ $routes->get('/about', 'Pages::about');
 $routes->get('/login', 'Auth::login');
 $routes->post('/login', 'Auth::attempt');
 $routes->get('/logout', 'Auth::logout');
+$routes->get('/tasks', 'Tasks::index');
+$routes->get('/profile', 'Profile::index');
+$routes->get('/about', 'Pages::about');
 
 $routes->group('', ['filter' => 'auth'], function($routes) {
 
