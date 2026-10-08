@@ -4,24 +4,20 @@ namespace App\Controllers;
 
 use App\Models\TaskModel;
 
-class Home extends BaseController
+class Tasks extends BaseController
 {
     public function index()
     {
         $taskModel = new TaskModel();
 
-        $today = date('Y-m-d');
-
         $tasks = $taskModel
-            ->where('task_date', $today)
             ->orderBy('task_date', 'ASC')
             ->findAll();
 
         $data = [
-            'tasks' => $tasks,
-            'today' => $today
+            'tasks' => $tasks
         ];
 
-        return view('home', $data);
+        return view('tasks', $data);
     }
 }
