@@ -13,6 +13,9 @@ class TaskModel extends Model
         'title',
         'status',
         'task_date',
-        'created_at'
+        'created_at',
+        'is_archived'
     ];
+
+    protected $useTimestamps = false;
 }
